@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion - Spotify{% endblock %}
+
+{% block body %}
+
+    <div class="flex justify-center">
+        <div class="w-full mx-96 h-screen bg-black rounded-md mt-24">
+            <form action="{{ path('app_login') }}" method="post" class="flex flex-col items-center mt-10">
+            <h2 class="text-4xl font-bold text-white mb-10">J'ai un compte Spotify</h2><br>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                
+                {% if error %}
+                    <div class="flex items-center p-4 mb-4 text-sm text-white bg-red-600 w-96" role="alert">
+                        <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="font-medium">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                    </div>
+                {% endif %}
+
+                <div class="mb-6 w-80">
+                    <label for="inputUseEmail" class="block mb-2 text-sm font-medium text-white">Adresse e-mail</label>
+                    <input type="email" name="_username" value="{{ last_username }}" id="inputEmail" autocomplete="email" placeholder="Adresse e-mail" required autofocus class="bg-zinc-900 border border-gray-500 text-white text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full h-12 p-2.5">
+                </div>
+                <div class="mb-6 w-80">
+                    <label for="inputPassword" class="block mb-2 text-sm font-medium text-white">Mot de passe</label>
+                    <input type="password" name="_password" id="inputPassword" autocomplete="current-password" placeholder="Mot de passe" class="bg-zinc-900 border border-gray-500 text-white text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full h-12 p-2.5" required>
+                </div>
+
+                <label class="relative inline-flex w-80">
+                    <input type="checkbox" name="_remember_me" class="sr-only peer" checked>
+                    <div class="w-9 h-5 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-white peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-black after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                    <span class="ml-3 text-sm font-medium text-white">Se souvenir de moi</span>
+                </label>
+
+                <button type="submit" class="mt-10 w-80 text-black bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-full text-base px-5 py-2.5 text-center">Se Connecter</button>
+
+                <hr class="w-96 h-px my-4 bg-gray-800 border-0 rounded md:my-10">
+
+                <p class="text-zinc-500 font-medium text-base">Vous n'avez pas de compte ? <a href="{{ path('app_register')}}" class="text-white underline decoration-white">Je n'ai pas Spotiy</a></p>
+                <br>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
