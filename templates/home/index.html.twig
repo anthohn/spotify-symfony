@@ -1,20 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Spotify
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="grow my-2 mr-2 rounded-md bg-neutral-950  ">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="flex justify-end">
+            <a href="{{ path('app_login') }}" class="my-2 h-12 flex items-center justify-center text-zinc-400 font-bold text-base hover:text-white">S'inscrire</a>
+            <a href="{{ path('app_login') }}" class="mx-6 my-2 w-48 h-12 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-base">Se Connecter</a>
+        </div>
+        <div class="bg-neutral-900">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/antho/Documents/CODE/spotify-symfony/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/antho/Documents/CODE/spotify-symfony/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <h2 class="text-2xl font-bold text-white ml-4">Playlists Spotify</h2><br>
+
+            <div class="flex justify-start">
+            <div class="bg-neutral-800 hover:bg-neutral-700 w-48 h-72 ml-4 mr-10 rounded text-center p-4">
+            <div class="h-3/5 flex items-center justify-center rounded mb-4">
+                <img src="chemin_de_votre_image.jpg" alt="Image" class="w-full h-full object-cover">
+            </div>
+            <h1 class="font-bold text-white text-lg mb-2 text-left">Titre en gras</h1>
+            <p class="font-normal text-zinc-400 text-left">Nicki Minaj & Ice Spice are on top of</p>
+        </div>
+        <div class="bg-neutral-800 hover:bg-neutral-700 h-72 w-48 mb-10 ml-4 mr-10 rounded">
+            <h1>test</h1>
+        </div>
+
+        <div class="bg-neutral-800 hover:bg-neutral-700 h-72 w-48 mb-10 ml-4 mr-10 rounded">
+            <h1>test</h1>
+        </div>
+        <div class="bg-neutral-800 hover:bg-neutral-700 h-72 w-48 mb-10 ml-4 mr-10 rounded">
+            <h1>test</h1>
+        </div>
+        </div>
+        </div>
+    </div>
+
 {% endblock %}

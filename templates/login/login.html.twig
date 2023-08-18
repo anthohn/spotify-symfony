@@ -4,8 +4,12 @@
 
 {% block body %}
 
+    {# {% block navbar %}
+    empty for no navbar
+    {% endblock %}  #}
+
     <div class="flex justify-center">
-        <div class="w-full mx-96 h-screen bg-black rounded-md mt-24">
+        <div class="w-full mx-96 bg-black rounded-md mt-24">
             <form action="{{ path('app_login') }}" method="post" class="flex flex-col items-center mt-10">
             <h2 class="text-4xl font-bold text-white mb-10">J'ai un compte Spotify</h2><br>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
