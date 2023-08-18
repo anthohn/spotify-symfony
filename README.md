@@ -10,7 +10,7 @@ This project aims to recreate the music streaming application *Spotify* using th
 - [Key Features](#key-features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Database Schema](#Database-Schema)
+- [Database Schema](#Database)
 
 ## Key Features
 
@@ -35,7 +35,7 @@ This project aims to recreate the music streaming application *Spotify* using th
 - Search for and play music
 - Create and manage playlists
 
-## Database Schema
+## Database
 
 ### Conceptual Data Model (MCD) v1.0
 ![image](https://github.com/anthohn/spotify-symfony/assets/75019251/08f84053-ccb6-4c8e-bd4d-4c8688a135b8)
