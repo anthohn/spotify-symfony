@@ -6,34 +6,48 @@
 
 {% block body %}
 
-	<div class="flex flex-row">
+	<div class="flex flex-row ">
 
 		{% include '_sidebar.html.twig' %}
 
-		<div class="grow my-2 mr-2 rounded-md bg-neutral-950  ">
+		<div class="py-2 mr-2 flex-grow">
 
-			<div class="flex justify-end">
-				<a href="{{ path('app_login') }}" class="my-2 h-12 flex items-center justify-center text-zinc-400 font-bold text-base hover:text-white">S'inscrire</a>
-				<a href="{{ path('app_login') }}" class="mx-6 my-2 w-48 h-12 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-base">Se Connecter</a>
-			</div>
-			<div class="bg-neutral-900">
-
-				<h2 class="text-2xl font-bold text-white ml-4">Playlists Spotify</h2><br>
-
-				<div class="flex justify-start">
-					<div class="bg-neutral-800 hover:bg-neutral-700 w-48 h-72 ml-4 mr-10 rounded text-center p-4 ease-in-out duration-100">
-						<div class="h-3/5 flex items-center justify-center rounded mb-4">
-							<img src="chemin_de_votre_image.jpg" alt="Image" class="w-full h-full object-cover">
-						</div>
-						<h1 class="font-bold text-white text-lg mb-2 text-left">Titre en gras</h1>
-						<p class="font-normal text-zinc-400 text-left">Nicki Minaj & Ice Spice are on top of</p>
-					</div>
-				</div>
-
-                
-			</div>
+            <div class="flex-col h-full rounded-md bg-neutral-900">
+                <div class="flex justify-end bg-neutral-950 rounded-t-lg">
+                    <a href="{{ path('app_login') }}" class="my-2 h-12 flex items-center justify-center text-zinc-400 font-bold text-base hover:text-white">S'inscrire</a>
+                    <a href="{{ path('app_login') }}" class="mx-6 my-2 w-48 h-12 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-base">Se Connecter</a>
+                </div>
+                <div class="bg-neutral-900 flex-grow">
+                    <div class="ml-6 flex flex-col space-y-6">
+                        <section>
+                            <h2 class="text-2xl font-bold text-white ">Playlists Spotify</h2><br>
+                            <div class="flex justify-start">
+                                <a href="#" class="bg-neutral-800 hover:bg-neutral-700 w-48 h-70 mr-10 rounded text-center p-4 ease-in-out duration-100">
+                                    <div class="h-3/5 flex items-center justify-center rounded mb-4">
+                                        <img src="https://i.scdn.co/image/ab67706f0000000220c0ad3f3597e79da2c62e5f" alt="Image" class="w-full h-full rounded">
+                                    </div>
+                                    <h1 class="font-bold text-white text-lg mb-2 text-left">Titre en gras</h1>
+                                    <p class="font-medium text-sm text-zinc-400 text-left">Nicki Minaj & Ice Spice are on top of</p>
+                                </a>
+                            </div>
+                        </section>
+                        <section>
+                            <h2 class="text-2xl font-bold text-white">Focus</h2><br>
+                            <div class="flex justify-start">
+                                <a href="#" class="bg-neutral-800 hover:bg-neutral-700 w-48 h-70 mr-10 rounded text-center p-4 ease-in-out duration-100">
+                                    <div class="h-3/5 flex items-center justify-center rounded mb-4">
+                                        <img src="https://i.scdn.co/image/ab67706f0000000296e08a91ef3c7a6e7bfaa9a6" alt="Image" class="w-full h-full object-cover">
+                                    </div>
+                                    <h1 class="font-bold text-white text-lg mb-2 text-left">Beats to think to</h1>
+                                    <p class="font-medium text-sm text-zinc-400 text-left">Focus with deep techno and tech house.</p>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
 		</div>
 
-    </div>
+	</div>
 
-	{% endblock %}
+{% endblock %}
