@@ -1,0 +1,89 @@
+<nav class="basis-1/5 h-screen p-2 flex-col flex">
+
+	<div class="p-3 font-medium bg-neutral-900 rounded-md ">
+		<a href="#" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
+			<span class="material-symbols-outlined">home</span>
+			<span class="ml-3">Accueil</span>
+		</a>
+		<a href="#" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
+			<span class="material-symbols-outlined">search</span>
+			<span class="flex-1 ml-3">Rechercher</span>
+		</a>
+	</div>
+
+	<div class="mt-2 font-medium bg-neutral-900 rounded-md p-2 flex-grow">
+
+		<a href="#" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
+			<span class="material-symbols-outlined">overview_key</span>
+			<span class="ml-4">Bibliothèque</span>
+		</a>
+
+		{% if not app.user %}
+
+			<section class="flex flex-col mt-4 rounded-lg bg-neutral-800 p-4">
+				<p class="font-bold text-base text-white mb-2">Créez votre première playlist</p>
+				<p class="font-normal text-sm text-white">C'est simple, nous allons vous aider</p>
+				<a href="{{ path('app_login') }}" class="mt-6 w-fit px-4 h-8 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-sm">Créer une playlist</a>
+			</section>
+
+			<section class="flex flex-col mt-6 rounded-lg bg-neutral-800 p-4 mb-56">
+				<p class="font-bold text-base text-white mb-2">Cherchons quelques podcasts auxquels vous abonner</p>
+				<p class="font-normal text-sm text-white">Nous vous transmettrons des informations sur les nouveaux épisodes</p>
+				<a href="{{ path('app_login') }}" class="mt-6 w-fit px-4 h-8 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-sm">Parcourir les podcasts</a>
+			</section>
+
+
+		<div>
+			<a href="#" class="px-4 text-zinc-400 font-normal text-xs">Cookies</a>
+			<a href="#" class="p-1 px-3 ml-4 mt-8 w-fit flex text-white items-center justify-center font-bold rounded-full border border-zinc-400 text-sm">
+				<span class="material-symbols-outlined">language</span>
+				<span class="">Français</span>
+			</a>
+		</div>
+
+		{% endif %}
+
+        <div class="">
+            <a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
+                <img src="https://mosaic.scdn.co/60/ab67616d00001e0214b31a0ac21c8645919204a8ab67616d00001e024c36c24fbfc1f46ed5a1fe5aab67616d00001e0294b9333e05b5803a87044bd6ab67616d00001e02c231365501881d64fe34476a" alt="playlist jacket" width="48" height="48" class="rounded">
+                <div class="flex-grow">
+                    <div class="text-white">
+                        <p>noice 2.0<p>
+                    </div>
+                    <div class="flex text-zinc-400 space-x-2 text-sm		">
+                        <div>
+                            <p>Playlist<p>
+                        </div>
+                        <span>
+                         • 
+                        </span>
+                        <div>
+                            <p>anthonyhohn</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
+                <img src="https://i.scdn.co/image/ab67706c0000dec5680ea566bfc548e0d21081fd" alt="playlist jacket" width="48" height="48" class="rounded">
+                <div class="flex-grow">
+                    <div class="text-white">
+                        <p>fit 🤴🏼🔱<p>
+                    </div>
+                    <div class="flex text-zinc-400 space-x-2 text-sm		">
+                        <div>
+                            <p>Playlist<p>
+                        </div>
+                        <span>
+                         • 
+                        </span>
+                        <div>
+                            <p>anthonyhohn</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+	</div>
+
+</nav>
