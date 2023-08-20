@@ -5,6 +5,5 @@
 body{
     /* background: linear-gradient(180deg, rgba(26,26,26,1) 0%, rgba(0,0,0,1) 100%); */
     background: black;
-	background-attachment: fixed;
-
+	/* background-attachment: fixed; */
 }
