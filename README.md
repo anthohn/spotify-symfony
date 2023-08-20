@@ -27,7 +27,8 @@ This project aims to recreate the music streaming application *Spotify* using th
 2. Navigate to the project directory: `cd spotify-symfony`
 3. Install dependencies: `composer install`
 4. Set up the database and schema: `php bin/console doctrine:database:create` and `php bin/console doctrine:migrations:migrate`
-5. Start the Symfony development server: `symfony server:start`
+5. Load fixtures for testing/demo data: `php bin/console doctrine:fixtures:load`
+6. Start the Symfony development server: `symfony server:start`
 
 ## Usage
 
