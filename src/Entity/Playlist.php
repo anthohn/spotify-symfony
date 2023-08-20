@@ -20,6 +20,9 @@ class Playlist
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $plaCreationDate = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $plaImage = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class Playlist
     public function setPlaCreationDate(\DateTimeInterface $plaCreationDate): static
     {
         $this->plaCreationDate = $plaCreationDate;
+
+        return $this;
+    }
+
+    public function getPlaImage(): ?string
+    {
+        return $this->plaImage;
+    }
+
+    public function setPlaImage(string $plaImage): static
+    {
+        $this->plaImage = $plaImage;
 
         return $this;
     }
