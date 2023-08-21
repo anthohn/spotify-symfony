@@ -23,6 +23,10 @@ class Playlist
     #[ORM\Column(length: 255)]
     private ?string $plaImage = null;
 
+    #[ORM\ManyToOne(inversedBy: 'playlists')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $idxUser = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +64,18 @@ class Playlist
     public function setPlaImage(string $plaImage): static
     {
         $this->plaImage = $plaImage;
+
+        return $this;
+    }
+
+    public function getIdxUser(): ?User
+    {
+        return $this->idxUser;
+    }
+
+    public function setIdxUser(?User $idxUser): static
+    {
+        $this->idxUser = $idxUser;
 
         return $this;
     }

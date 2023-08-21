@@ -51,30 +51,30 @@ class AppFixtures extends Fixture
         }
 
         //playlists
-        for ($i = 0; $i < 50; $i++) {
-            $playlist = new Playlist();
-                $playlist->setPlaName($this->faker->word())
-                ->setPlaCreationDate($this->faker->dateTimeThisMonth())
-                ->setPlaImage($this->faker->imageUrl(48, 48, 'playlist', true));
+        // for ($i = 0; $i < 10; $i++) {
+        //     $playlist = new Playlist();
+        //         $playlist->setPlaName($this->faker->word())
+        //         ->setPlaCreationDate($this->faker->dateTimeThisMonth())
+        //         ->setPlaImage($this->faker->imageUrl(48, 48, 'playlist', true));
             
-            $playlists[] = $playlist;
-            $manager->persist($playlist);
-        }
+        //     $playlists[] = $playlist;
+        //     $manager->persist($playlist);
+        // }
 
         //adds (associations between users and playlists)
-        for ($i = 0; $i < 100; $i++) {
-            $add = new Adds();
+        // for ($i = 0; $i < 100; $i++) {
+        //     $add = new Adds();
             
-            // Randomly assign a user and playlist for this "add" entry
-            $randomUser = $users[$this->faker->numberBetween(0, count($users) -1)];
-            $randomPlaylist = $playlists[$this->faker->numberBetween(0, count($playlists) -1)];
+        //     // Randomly assign a user and playlist for this "add" entry
+        //     $randomUser = $users[$this->faker->numberBetween(0, count($users) -1)];
+        //     $randomPlaylist = $playlists[$this->faker->numberBetween(0, count($playlists) -1)];
             
-            $add->setIdxUser($randomUser)
-                ->setIdxPlaylist($randomPlaylist)
-                ->setAddsAddedDate($this->faker->dateTimeThisMonth());
+        //     $add->setIdxUser($randomUser)
+        //         ->setIdxPlaylist($randomPlaylist)
+        //         ->setAddsAddedDate($this->faker->dateTimeThisMonth());
             
-            $manager->persist($add);
-        }
+        //     $manager->persist($add);
+        // }
 
         //songs
         for ($i = 0; $i < 100; $i++) {

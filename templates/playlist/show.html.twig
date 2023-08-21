@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PlaylistController!
+{% endblock %}
+
+{% block body %}
+
+    <div class="flex flex-row ">
+
+        {% include '_sidebar.html.twig' %}
+
+        <div class="py-2 mr-2 flex-grow">
+
+            <div class="flex flex-col h-full rounded-md bg-neutral-900">
+                 <div class="flex justify-end bg-neutral-950 rounded-t-lg">
+                    <a href="{{ path('app_login') }}" class="my-2 h-12 flex items-center justify-center text-zinc-400 font-bold text-base hover:text-white">S'inscrire</a>
+                    <a href="{{ path('app_login') }}" class="mx-6 my-2 w-48 h-12 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-base">Se Connecter</a>
+                </div>
+
+                    <div class="flex flex-row">
+                        <div class="h-56 w-56 m-7 bg-neutral-800 grid place-content-center">
+                        </div>
+                        <div class="flex grow">
+                            <div class="flex-row mt-20">
+                                <p class="text-white text-sm">Playlist</p>
+                                <h1 class="text-8xl font-extrabold text-white">Ma playlist n°24</h1>
+                                <div class="flex flex-row items-center space-x-1  mt-8">
+                                    <img src="https://i.scdn.co/image/ab67757000003b82a6eba79b0469a5615b75afe8" alt="playlist jacket" class="w-6 h-6 rounded-full">
+                                    <p class="text-white text-sm font-bold">anthonyhohn</p>
+                                </div>
+                            </div>                    
+                        </div>
+                    </div>
+
+                    <div class="grow">
+                        <section class="mt-32 mx-6 border-t border-neutral-700">
+                            <div class="py-8">
+                                <p class="text-white font-bold text-2xl">Cherchons du contenu à ajouter à votre playlist</p>
+                            </div>
+                            <form>   
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                        </svg>
+                                    </div>
+                                    <input type="text" id="default-search" class="block w-1/3 p-2 pl-10 text-sm text-neutral-300 rounded bg-neutral-700 placeholder:text-neutral-300" placeholder="Rechercez des ditres ou des épisodes" required>
+                                </div>
+                            </form>
+
+                        </section>     
+
+                    </div>
+
+                
+
+            </div>
+        </div>
+
+{% endblock %}
