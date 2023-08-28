@@ -1,7 +1,7 @@
-<nav class="basis-1/5 h-screen p-2 flex-col flex">
+<nav class="basis-1/5 h-screen py-2 pl-2 flex-col flex">
 
-	<div class="p-3 bg-neutral-900 rounded-md ">
-		<a href="#" class="flex items-center text-lg font-bold p-2 text-zinc-400 rounded-lg hover:text-white group">
+	<div class="p-3 bg-neutral-900 rounded-md">
+		<a href="{{ path('app_home') }}" class="flex items-center text-lg font-bold p-2 text-zinc-400 rounded-lg hover:text-white group">
 			<span class="material-symbols-outlined">home</span>
 			<span class="ml-3">Accueil</span>
 		</a>
@@ -11,17 +11,36 @@
 		</a>
 	</div>
 
-	<div class="mt-2 bg-neutral-900 rounded-md p-2 flex-grow">
 
-		<div class="justify-between flex">
-			<a href="#" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
-				<span class="material-symbols-outlined">overview_key</span>
-				<span class="ml-4">Bibliothèque</span>
-			</a>
-			<a href="{{ path('app_playlist_add') }}" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
-				<span class="material-symbols-outlined">add</span>
-			</a>
-		</div>
+<style>
+  /* Appliquer des styles à la barre de défilement */
+  ::-webkit-scrollbar {
+    width: 13px; /* Largeur de la barre de défilement */
+  }
+
+  /* Styler la poignée de la barre de défilement */
+  ::-webkit-scrollbar-thumb {
+    background-color: #5A5A5A;
+    /* border-radius: 5px; */
+  }
+
+    /* Styler la poignée de la barre de défilement au survol */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #898989; /* Couleur différente au survol */
+  }
+
+</style>
+	<div class="justify-between flex bg-neutral-900 mt-2 rounded-t-lg p-2">
+		<a href="#" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
+			<span class="material-symbols-outlined">overview_key</span>
+			<span class="ml-4">Bibliothèque</span>
+		</a>
+		<a href="{{ path('app_playlist_add') }}" class="flex items-center text-lg font-semibold p-2 text-zinc-400 rounded-lg hover:text-white group">
+			<span class="material-symbols-outlined">add</span>
+		</a>
+	</div>
+
+	<div class=" bg-neutral-900 rounded-b-lg p-2 flex-grow overflow-hidden hover:overflow-y-scroll">
 
 		{% if not app.user %}
 
@@ -37,7 +56,6 @@
 				<a href="{{ path('app_login') }}" class="mt-6 w-fit px-4 h-8 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-sm">Parcourir les podcasts</a>
 			</section>
 
-
 			<div>
 				<a href="#" class="px-4 text-zinc-400 font-normal text-xs">Cookies</a>
 				<a href="#" class="p-1 px-3 ml-4 mt-8 w-fit flex text-white items-center justify-center font-bold rounded-full border border-zinc-400 text-sm">
@@ -48,15 +66,15 @@
 
 		{% elseif app.user %}
 
-			{# {% for userPlaylist in userPlaylists %}
-			<a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
+			{% for userPlaylist in userPlaylists %}
+				<a href="{{ path('app_playlist_show', {'id': userPlaylist.id })}}" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
 					<img src="https://mosaic.scdn.co/60/ab67616d00001e0214b31a0ac21c8645919204a8ab67616d00001e024c36c24fbfc1f46ed5a1fe5aab67616d00001e0294b9333e05b5803a87044bd6ab67616d00001e02c231365501881d64fe34476a" alt="playlist jacket" class="w-12 h-12 rounded">
 					<div class="flex-grow">
 						<div class="text-white">
-							<p>{{ userPlaylist.idxPlaylist.plaName }}</p>
+							<p>{{ userPlaylist.plaName }}</p>
 							<p></p>
 						</div>
-						<div class="flex text-zinc-400 space-x-2 text-sm		">
+						<div class="flex text-zinc-400 space-x-2 text-sm">
 							<div>
 								<p>Playlist</p>
 								<p></p>
@@ -65,55 +83,55 @@
 								•
 							</span>
 							<div>
-								<p>anthonyhohn</p>
+								<p>{{ userPlaylist.idxUser.useEmail }}</p>
 							</div>
 						</div>
 					</div>
 				</a>
-			{% endfor %} #}
+			{% endfor %}
 
-			<a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
-				<img src="https://mosaic.scdn.co/60/ab67616d00001e0214b31a0ac21c8645919204a8ab67616d00001e024c36c24fbfc1f46ed5a1fe5aab67616d00001e0294b9333e05b5803a87044bd6ab67616d00001e02c231365501881d64fe34476a" alt="playlist jacket" class="w-12 h-12 rounded">
-				<div class="flex-grow">
-					<div class="text-white">
-						<p>noice 2.0</p>
-						<p></p>
-					</div>
-					<div class="flex text-zinc-400 space-x-2 text-sm">
-						<div>
-							<p>Playlist</p>
-							<p></p>
-						</div>
-						<span>
-							•
-						</span>
-						<div>
-							<p>anthonyhohn</p>
-						</div>
-					</div>
-				</div>
-			</a>
-			<a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
-				<img src="https://i.scdn.co/image/ab67706c0000dec5680ea566bfc548e0d21081fd" alt="playlist jacket" class="w-12 h-12 rounded">
-				<div class="flex-grow">
-					<div class="text-white">
-						<p>fit 🤴🏼🔱</p>
-						<p></p>
-					</div>
-					<div class="flex text-zinc-400 space-x-2 text-sm		">
-						<div>
-							<p>Playlist</p>
-							<p></p>
-						</div>
-						<span>
-							•
-						</span>
-						<div>
-							<p>anthonyhohn</p>
-						</div>
-					</div>
-				</div>
-			</a>
+			{# <a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
+											<img src="https://mosaic.scdn.co/60/ab67616d00001e0214b31a0ac21c8645919204a8ab67616d00001e024c36c24fbfc1f46ed5a1fe5aab67616d00001e0294b9333e05b5803a87044bd6ab67616d00001e02c231365501881d64fe34476a" alt="playlist jacket" class="w-12 h-12 rounded">
+											<div class="flex-grow">
+												<div class="text-white">
+													<p>noice 2.0</p>
+													<p></p>
+												</div>
+												<div class="flex text-zinc-400 space-x-2 text-sm">
+													<div>
+														<p>Playlist</p>
+														<p></p>
+													</div>
+													<span>
+														•
+													</span>
+													<div>
+														<p>anthonyhohn</p>
+													</div>
+												</div>
+											</div>
+										</a>
+										<a href="#" class="flex space-x-2 p-2 font-medium rounded hover:bg-neutral-800 transition ease-in-out duration-100">
+											<img src="https://i.scdn.co/image/ab67706c0000dec5680ea566bfc548e0d21081fd" alt="playlist jacket" class="w-12 h-12 rounded">
+											<div class="flex-grow">
+												<div class="text-white">
+													<p>fit 🤴🏼🔱</p>
+													<p></p>
+												</div>
+												<div class="flex text-zinc-400 space-x-2 text-sm		">
+													<div>
+														<p>Playlist</p>
+														<p></p>
+													</div>
+													<span>
+														•
+													</span>
+													<div>
+														<p>anthonyhohn</p>
+													</div>
+												</div>
+											</div>
+										</a> #}
 
 
 		{% endif %}

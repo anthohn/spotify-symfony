@@ -19,6 +19,9 @@ class PlaylistController extends AbstractController
         //get current user infos
         $user = $this->getUser();
 
+        $userPlaylists = $PlaylistRepository->findBy(['idxUser' =>  $user]);
+
+
         $playlist = $PlaylistRepository->find($id);
 
         // dd($playlist);
@@ -26,7 +29,8 @@ class PlaylistController extends AbstractController
 
         return $this->render('playlist/show.html.twig', [
             'controller_name' => 'PlaylistController',
-            'playlist' => $playlist
+            'playlist' => $playlist,
+            'userPlaylists' => $userPlaylists
         ]);
     }
 

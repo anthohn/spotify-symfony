@@ -16,29 +16,21 @@ class HomeController extends AbstractController
     }
 
     #[Route('/home', name: 'app_home')]
-    public function index(): Response
+    public function index(PlaylistRepository $PlaylistRepository): Response
     {   
         //get current user infos
         $user = $this->getUser();
 
-        // $userPlaylists = $PlaylistRepository->findBy(['idxUser' =>  $user]);
-
-        // foreach ($userPlaylistss as $userPlaylist) {
-        //     $playlistId = $userPlaylist->getId();
-
-        //     $playlist = $TPlaylistRepository->findBy([
-        //         'idPlaylist' => $playlistId,
-        //     ]);
-        // }
-
-  
+        $userPlaylists = $PlaylistRepository->findBy(['idxUser' =>  $user]);
 
         // dd($userPlaylists);
         // die();
 
+  
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            // 'userPlaylists' => $userPlaylists
+            'userPlaylists' => $userPlaylists
         ]);
     }
 }

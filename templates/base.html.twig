@@ -17,8 +17,22 @@
 
 	</head>
 	<body>
-	<body>
-        {% block body %}
-        {% endblock %}
+		<div class="flex flex-row ">
+
+			{% include '_sidebar.html.twig' %}
+
+			<div class="p-2 flex-grow">
+				<div class="flex-col h-full rounded-md bg-neutral-900">
+					<div class="flex justify-end bg-neutral-950 rounded-t-lg h-16">
+						{% if not app.user %}
+							<a href="{{ path('app_login') }}" class="my-2  flex items-center justify-center text-zinc-400 font-bold text-base hover:text-white">S'inscrire</a>
+							<a href="{{ path('app_login') }}" class="mx-6 my-2 w-48 flex items-center justify-center text-black bg-zinc-50 focus:bg-zinc-300 font-bold rounded-full text-base">Se Connecter</a>
+						{% endif %}
+					</div>
+					{% block body %}{% endblock %}
+				</div>
+			</div>
+
+		</div>
 	</body>
 </html>
